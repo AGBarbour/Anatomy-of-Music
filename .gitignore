@@ -1,2 +1,1 @@
-# Exclude config file containing API keys
-assets/js/config.js
+node_modules/
