@@ -35,6 +35,15 @@ class Features(db.Model):
     def __repr__(self):
         return '<Features %r>' % (self.name)
 
+class Map(db.Model):
+    __tablename__ = 'map'
+
+    country_code = db.Column(db.String(64), primary_key=True)
+    market_count = db.Column(db.Float)
+
+    def __repr__(self):
+        return '<Map %r>' % (self.name)
+
 
 @app.route("/")
 def index():
@@ -45,8 +54,6 @@ def index():
 @app.route("/features")
 def features():
     """Return all features"""
-    # stmt = db.session.query(Features).statement
-    # df = pd.read_sql_query(stmt, db.session.bind)
 
     results = db.session.query(Features.id, Features.popularity, Features.danceability, Features.energy, Features.loudness, Features.speechiness, Features.duration_ms, Features.tempo).all()
 
@@ -73,16 +80,23 @@ def features():
     }]
     return jsonify(data)
 
-# @app.route("/features")
-# def names():
-#     """Return a features"""
+@app.route("/map")
+def names():
+    """Return Map data"""
 
-#     # Use Pandas to perform the sql query
-#     stmt = db.session.query(Samples).statement
-#     df = pd.read_sql_query(stmt, db.session.bind)
+   
+    results = db.session.query(Map.country_code, Map.market_count).all()
 
-#     # Return a list of the column names (sample names)
-#     return jsonify(list(df.columns)[2:])
+    country_code = [result[0] for result in results]
+    market_count = [result[1] for result in results]
+    
+
+    # Format the data to send as json
+    data = [{
+        "country_code": country_code,
+        "market_count": market_count,
+    }]
+    return jsonify(data)
 
 
 # @app.route("/metadata/<sample>")
