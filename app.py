@@ -44,6 +44,15 @@ class Map(db.Model):
     def __repr__(self):
         return '<Map %r>' % (self.name)
 
+class Genre(db.Model):
+    __tablename__ = 'genre'
+
+    genre = db.Column(db.String(64), primary_key=True)
+    count = db.Column(db.Float)
+
+    def __repr__(self):
+        return '<Genre %r>' % (self.name)
+
 
 @app.route("/")
 def index():
@@ -81,7 +90,7 @@ def features():
     return jsonify(data)
 
 @app.route("/map")
-def names():
+def map():
     """Return Map data"""
 
    
@@ -98,36 +107,28 @@ def names():
     }]
     return jsonify(data)
 
+@app.route("/genre")
+def genre():
+    """Return Genre data"""
 
-# @app.route("/metadata/<sample>")
-# def sample_metadata(sample):
-#     """Return the MetaData for a given sample."""
-#     sel = [
-#         Samples_Metadata.sample,
-#         Samples_Metadata.ETHNICITY,
-#         Samples_Metadata.GENDER,
-#         Samples_Metadata.AGE,
-#         Samples_Metadata.LOCATION,
-#         Samples_Metadata.BBTYPE,
-#         Samples_Metadata.WFREQ,
-#     ]
+    results = db.session.query(Genre.genre, Genre.count).all()
 
-#     results = db.session.query(*sel).filter(Samples_Metadata.sample == sample).all()
+    genre = [result[0] for result in results]
+    count = [result[1] for result in results]
+    
 
-#     # Create a dictionary entry for each row of metadata information
-#     sample_metadata = {}
-#     for result in results:
-#         sample_metadata["sample"] = result[0]
-#         sample_metadata["ETHNICITY"] = result[1]
-#         sample_metadata["GENDER"] = result[2]
-#         sample_metadata["AGE"] = result[3]
-#         sample_metadata["LOCATION"] = result[4]
-#         sample_metadata["BBTYPE"] = result[5]
-#         sample_metadata["WFREQ"] = result[6]
+    # Format the data to send as json
+    data = []
 
-#     print(sample_metadata)
-#     return jsonify(sample_metadata)
+    for result in results:
 
+        temp = {
+            "genre": result[0],
+            "count": result[1]
+        }
+        data.append(temp)
+
+    return jsonify(data)
 
 
 
