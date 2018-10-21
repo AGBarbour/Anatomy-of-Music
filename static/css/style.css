@@ -25,6 +25,10 @@ html {
   background-color: "grey";
 }
 
+.col-lg-12 ul li{
+  padding-bottom: 30px;
+}
+
 /* CSS to make Reveal and leaflet work play nice together */
 .reveal .leaflet-container .leaflet-fade-anim .leaflet-tile, .reveal .leaflet-container .leaflet-fade-anim .leaflet-popup {
   -webkit-transition: opacity 0.2s linear;
