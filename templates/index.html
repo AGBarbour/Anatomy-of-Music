@@ -4,6 +4,29 @@
     <meta charset="UTF-8">
     <title>Anatomy of Music</title>
 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    
+    
+    <!-- Our CSS -->
+    <link rel="stylesheet" type="text/css" href="/static/css/style.css">
+    <link rel="stylesheet" type="text/css" href="/static/css/d3Style.css">
+
+    <!-- revail CSS -->
+		<link rel="stylesheet" href="/static/css/reveal.css">
+		<link rel="stylesheet" href="/static/css/theme/blood.css">
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="/static/lib/css/zenburn.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? '/static/css/print/pdf.css' : '/static/css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+
     <!-- Leaflet JS & CSS -->
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.3/dist/leaflet.css"
     integrity="sha512-Rksm5RenBEKSKFjgI3a41vrjkw4EVPlJ3+OiI65vTjIdo9brlAacEuKOiQ5OFh7cOI1bkDwLqdLw3Zg0cRJAAQ=="
@@ -13,34 +36,68 @@
     crossorigin=""></script>
 
     <!-- d3 JavaScript -->
-    <!-- <script src="https://d3js.org/d3.v4.min.js"></script> -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.5.0/d3.min.js"></script>
     <!-- plotly js -->
     <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
 
-    <!-- Our CSS -->
-    <link rel="stylesheet" type="text/css" href="/static/css/style.css">
-    <link rel="stylesheet" type="text/css" href="/static/css/d3Style.css">
 
   </head>
   <body>
+      <script src="/static/lib/js/head.min.js"></script>
+      <script src="/static/js/reveal.js"></script>
+    
+      <div class="reveal">
+          <div class="slides">
+            <section>
+              <h1>The Anatomy of Music</h1>
+              <h4>By: Alex, Aruna, and Austin</h4>
+            </section>
+            <section>
+                <h3>Methods</h3>
+                <h4>By: Alex, Aruna, and Austin</h4>
+            </section>
+            <section>
+                <div class = "map" id="map"></div>
+            </section>
+            <section> 
+                <h3>Bar Chart Title</h3>
+                <div id="bar"></div> 
+              </section>
+            <section data-background-transition="zoom"> 
+              <h3>Top Genres Based on the Top 100 Artists</h3>
+              <div id="pie"></div> 
+            </section>
 
-    <!-- map div -->
-    <div class="container" id="map-container">
-      <div id="map"></div>
-      <div id="pie"></div> 
-    </div> 
-    <!-- pie div -->
-    <div class="container">
-    <div id="pie"></div> 
-    </div>
+          </div>
+      </div>
+
+   
     <!-- API key -->
     <script type="text/javascript" src="/static/js/config.js"></script>
       <!-- JS  -->
+    <script src="/static/lib/js/head.min.js"></script>
+    <script src="/static/js/reveal.js"></script>
     <script type="text/javascript" src="/static/js/map.js"></script>
-    <script type="text/javascript" src="/static/js/scatter.js"></script>
-    <script type="text/javascript" src="/static/js/pie.js"></script>
 
+    
+    <!-- <script type="text/javascript" src="/static/js/scatter.js"></script> -->
+    <script type="text/javascript" src="/static/js/pie.js"></script>
+    
+
+
+		<script>
+			// More info about config & dependencies:
+			// - https://github.com/hakimel/reveal.js#configuration
+			// - https://github.com/hakimel/reveal.js#dependencies
+			Reveal.initialize({
+				dependencies: [
+					{ src: '/static/plugin/markdown/marked.js' },
+					{ src: '/static/plugin/markdown/markdown.js' },
+					{ src: '/static/plugin/notes/notes.js', async: true },
+					{ src: '/static/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+				]
+			});
+		</script>
     
 
   </body>
