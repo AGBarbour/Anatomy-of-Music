@@ -1,4 +1,4 @@
-.aText {
+/* .aText {
   font-family: sans-serif;
   font-size: 16px;
   text-anchor: middle;
@@ -21,10 +21,10 @@
 .inactive:hover {
   fill: #000;
   cursor: pointer;
-}
+} */
 
 /* font size dependent on radius, see app.js */
-.stateText {
+/* .stateText {
   font-family: sans-serif;
   fill: #fff;
   text-anchor: middle;
@@ -53,7 +53,7 @@
 }
 
 /* Mobile Rules */
-@media screen and (max-width: 530px) {
+/* @media screen and (max-width: 530px) {
   .stateText {
     display: none;
   }
@@ -67,4 +67,4 @@
   .aText {
     font-size: 13px;
   }
-}
+} */ */
