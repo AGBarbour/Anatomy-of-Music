@@ -28,10 +28,10 @@ for (var i = 0; i < locations.length; i++) {
         radius: 100000
         }).bindPopup("<h3 style='text-shadow: none'>" + locations[i].country.name + "</h3> <hr> <h3 style='text-shadow: none'>Percent of Top Songs: " + locations[i].country.market + "</h3>").addTo(myMap)}
     catch(error) {
-        console.log(locations[i].country.name)
+        console.log(`Coordinates not found: ${locations[i].country.name}`)
     }
-    };
-// console.log(countryMarkers)
+};
+
 
 
 L.Map.addInitHook(function() {
