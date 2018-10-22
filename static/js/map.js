@@ -26,7 +26,7 @@ for (var i = 0; i < locations.length; i++) {
         color: "#191414",
         fillColor: "#1db954",
         radius: 100000
-        }).bindPopup("<h3 style='text-shadow: none'>" + locations[i].country.name + "</h3> <hr> <h3 style='text-shadow: none'>Percent of Top Songs: " + locations[i].country.market + "</h3>").addTo(myMap)}
+        }).bindPopup("<h3 style='text-shadow: none'>" + locations[i].country.name + "</h3> <hr> <h3 style='text-shadow: none'>Percent of Top Songs Available: " + locations[i].country.market + "</h3>").addTo(myMap)}
     catch(error) {
         console.log(`Coordinates not found: ${locations[i].country.name}`)
     }
