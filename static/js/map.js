@@ -11,9 +11,27 @@ var myMap = L.map("map", {
 L.tileLayer("https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}", {
 attribution: "Map data &copy; <a href='https://www.openstreetmap.org/'>OpenStreetMap</a> contributors, <a href='https://creativecommons.org/licenses/by-sa/2.0/'>CC-BY-SA</a>, Imagery © <a href='https://www.mapbox.com/'>Mapbox</a>",
 maxZoom: 18,
-id: "mapbox.streets",
+id: "mapbox.dark",
 accessToken: API_KEY
 }).addTo(myMap);
+
+
+// Loop through locations and create city and state markers
+for (var i = 0; i < locations.length; i++) {
+// Setting the marker radius for the state by passing market into the markerSize function
+    try {
+        L.circle(locations[i].Coordinates, {
+        stroke: false,
+        fillOpacity: 0.75,
+        color: "#191414",
+        fillColor: "#1db954",
+        radius: 100000
+        }).bindPopup("<h3 style='text-shadow: none'>" + locations[i].country.name + "</h3> <hr> <h3 style='text-shadow: none'>Percent of Top Songs: " + locations[i].country.market + "</h3>").addTo(myMap)}
+    catch(error) {
+        console.log(locations[i].country.name)
+    }
+    };
+// console.log(countryMarkers)
 
 
 L.Map.addInitHook(function() {
@@ -30,15 +48,6 @@ L.Map.addInitHook(function() {
     }
 
     this.invalidateSize();
-});
-
-// url will be set to restAPI when that is set up using python
-var url = "";
-
-d3.json(url, function(response) {
-
-    // Call data and .addTo(myMap)
-
 });
 
 Reveal.addEventListener( 'slidechanged', function( event ) {

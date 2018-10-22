@@ -285,14 +285,7 @@ function markerSize(market) {
         market: 100
         }
       },
-      {
-        "Coordinates": [[47.166, 9.555373]],
-        country: {                    
-        name: "Liechtenstein",
-        code: "LI",
-        market: 100
-        }
-      },
+
       {
         "Coordinates": [55.169438, 23.881275],
         country: {                    

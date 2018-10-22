@@ -8,7 +8,7 @@ d3.json(url)
     data.sort(function(a, b) {
         return parseFloat(b.count) - parseFloat(a.count)
     })
-    console.log(data)
+    // console.log(data)
 
     var labels = data.map(genre => genre.genre);
     var values = data.map(genre => genre.count);
