@@ -81,7 +81,9 @@ d3.json(url)
     var data = [trace3, trace2, trace1, trace4, trace5];
   
     var layout = {
-        title: "Song Attributes",
+        height: 550,
+        width: 925,
+        // title: "Song Attributes",
         barmode: "group"
     };
 
